@@ -138,6 +138,7 @@ button {
     padding: 15x 35px;
     font-size: 10px;
     text-align: left;
+    margin-left: 1vw;
   }
 
   .valid {
@@ -146,7 +147,8 @@ button {
   
   .valid:before {
     position: relative;
-    content: "\2716";
+    content: "\2714";
+    left: -3px;
   }
 
   .invalid {
@@ -156,5 +158,6 @@ button {
   
   .invalid:before {
     position: relative;
-    content: "\2714";
+    content: "\2716";
+    left: -3px;
   }

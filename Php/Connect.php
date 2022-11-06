@@ -13,5 +13,6 @@
     
     //echo "Connect success";
     mysqli_query($con,"SET NAMES 'UTF8'");
+    mysqli_close($con);
    
 ?>

@@ -54,6 +54,7 @@ if (isset($_POST['btnDK'])) {
             $result = mysqli_query($con, $query);
             if ($result) {
                 echo "<script type = 'text/javascript'>alert('Đăng ký thành công');</script>";
+                $con->close();
                 header("Location: ../Php/DangNhap.php");
             } else {
                 $error = 'Đăng ký thất bại';
