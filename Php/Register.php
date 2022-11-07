@@ -1,4 +1,5 @@
-﻿<?php
+<?php
+include "Users.php";
 include "dbconn.php";
 $error = '';
 $success = '';
@@ -47,6 +48,8 @@ if (isset($_POST['btnDK']) && !empty($_POST)) :
         $error = 'Vui lòng điền họ tên';
     elseif (empty($_POST['tendn'])) :
         $error = 'Vui lòng điền tên đăng nhập';
+    elseif (!(preg_match('/^[a-zA-Z][0-9a-zA-Z_]{6,23}[0-9a-zA-Z]$/', $_POST['tendn']))) :
+        $error = 'Tên đăng nhập không đúng định dạng';
     elseif (isset($user['username']) && !empty($user['username'])) :
         $error = 'Tên đăng nhập đã tồn tài';
     elseif (empty($_POST['email'])) :
@@ -65,8 +68,12 @@ if (isset($_POST['btnDK']) && !empty($_POST)) :
         $error = 'Vui lòng xác nhận giới tính';
     elseif (empty($_POST['diachi'])) :
         $error = 'Vui lòng nhập địa chỉ';
-    elseif (empty($_POST['tinh'])) :
+    elseif (empty($_POST['city'])) :
         $error = 'Vui lòng chọn tỉnh/thành phố';
+    elseif (empty($_POST['district'])) :
+        $error = 'Vui lòng chọn quận/huyện';
+    elseif (empty($_POST['ward'])) :
+        $error = 'Vui lòng chọn xã/phường';
     elseif ($_POST['matkhau'] != $_POST['nhaplaimk']) :
         $error = 'Mật khẩu nhập lại không khớp';
     elseif (preg_match($regex, $_POST['email'], $match) == 0) :
@@ -74,24 +81,11 @@ if (isset($_POST['btnDK']) && !empty($_POST)) :
     elseif (preg_match($pattern, $_POST['sdt'], $match) == 0) :
         $error = 'Số điện thoại không hợp lệ';
     else :
-        $password = md5($_POST['matkhau']);
-        $query = "INSERT INTO `user`(`fullname`,`gender`,`email`,`phoneNumber`,`address`,`city`,`username`,`password`,`role_id`) 
-            VALUES (:fullname,:gender,:email,:phoneNumber,:address,:city,:username,:password,11)";
-        $stmt = $db->prepare($query);
-        $stmt->execute(
-            array(
-                ':fullname' => $_POST['hoten'],
-                ':gender' => $gender,
-                ':email' => $_POST['email'],
-                ':phoneNumber' => $_POST['sdt'],
-                ':address' => $_POST['diachi'],
-                ':city' => $_POST['tinh'],
-                ':username' => $_POST['tendn'],
-                ':password' => $password
-            )
-        );
-        $last_id = $db->lastInsertId();
-        if (isset($last_id) && !empty($last_id)) :
+        $address = $_POST['diachi'] . ', ' . $_POST['ward'] . ', ' . $_POST['district'] . ', ' . $_POST['city'];
+        $Account = new Users();
+        $Check = $Account->Register($_POST['hoten'], $gender, $_POST['email'], $_POST['sdt'], $address, $_POST['city'], $_POST['tendn'], $_POST['matkhau']);
+
+        if ($Check) :
             $success = "<script type = 'text/javascript'>alert('Bạn đã đăng ký thành công');</script>";
         else :
             $error = "<script type = 'text/javascript'>alert('Đăng ký thất bại');</script>";
@@ -107,7 +101,7 @@ $db = null;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tạo tài khoản</title>
-    <link rel="stylesheet" href="../Css/TaoTaiKhoan.css" />
+    <link rel="stylesheet" href="../Css/Register.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Pacifico&display=swap" rel="stylesheet">
 
@@ -133,7 +127,7 @@ $db = null;
                 <div class="alert alert-success" role="alert">
                     <?php echo $success; ?>
                 </div>
-                <?php header('Location: ../Php/DangNhap.php');?>
+                <?php header('Location: ../Php/DangNhap.php'); ?>
                 <?php  ?>
             <?php endif; ?>
             </p>
@@ -141,10 +135,10 @@ $db = null;
                 <input type="text" id="hoten" name="hoten" value="<?php echo isset($_POST['hoten']) ? $_POST['hoten'] : '' ?>" class="input" placeholder="Họ và tên" />
             </p>
             <p>
-                <input type="text" id="tendn" name="tendn" value="<?php echo isset($_POST['tendn']) ? $_POST['tendn'] : '' ?>" class="input" placeholder="Tên đăng nhập" />
+                <input type="text" id="tendn" name="tendn" value="<?php echo isset($_POST['tendn']) ? $_POST['tendn'] : '' ?>" class="input" title="Tên đăng nhập bắt dầu bằng chữ cái, có ít nhất 6 ký tự trở lên" placeholder="Tên đăng nhập" />
             </p>
             <p>
-                <input type="text" id="email" name="email" value="<?php echo isset($_POST['email']) ? $_POST['email'] : '' ?>" class="input" placeholder="Email" />
+                <input type="text" id="email" name="email" value="<?php echo isset($_POST['email']) ? $_POST['email'] : '' ?>" class="input" title="Email phải có ký tự @" placeholder="Email" />
             </p>
             <p>
                 <input type="password" id="matkhau" name="matkhau" value="<?php echo isset($_POST['matkhau']) ? $_POST['matkhau'] : '' ?>" class="input" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mật khẩu phải chứa ít nhất một số và một chữ hoa và chữ thường và ít nhất 8 ký tự trở lên" placeholder="Mật khẩu" />
@@ -174,7 +168,60 @@ $db = null;
                 <input type="text" id="diachi" name="diachi" value="<?php echo isset($_POST['diachi']) ? $_POST['diachi'] : '' ?>" class="input" placeholder="Địa chỉ" />
             </p>
             <p>
-                <input type="text" id="tinh" name="tinh" value="<?php echo isset($_POST['tinh']) ? $_POST['tinh'] : '' ?>" class="input" placeholder="Tỉnh/Thành phố" />
+                <select class="form-select form-select-sm mb-3" id="city" name="city" aria-label=".form-select-sm">
+                    <option value="" selected>Chọn tỉnh thành</option>
+                </select>
+
+                <select class="form-select form-select-sm mb-3" id="district" name="district" aria-label=".form-select-sm">
+                    <option value="" selected>Chọn quận huyện</option>
+                </select>
+
+                <select class="form-select form-select-sm" id="ward" name="ward" aria-label=".form-select-sm">
+                    <option value="" selected>Chọn phường xã</option>
+                </select>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+                <script>
+                    var citis = document.getElementById("city");
+                    var districts = document.getElementById("district");
+                    var wards = document.getElementById("ward");
+                    var Parameter = {
+                        url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+                        method: "GET",
+                        responseType: "application/json",
+                    };
+                    var promise = axios(Parameter);
+                    promise.then(function(result) {
+                        renderCity(result.data);
+                    });
+
+                    function renderCity(data) {
+                        for (const x of data) {
+                            citis.options[citis.options.length] = new Option(x.Name, x.Name);
+                        }
+                        citis.onchange = function() {
+                            district.length = 1;
+                            ward.length = 1;
+                            if (this.value != "") {
+                                const result = data.filter(n => n.Name === this.value);
+
+                                for (const k of result[0].Districts) {
+                                    district.options[district.options.length] = new Option(k.Name,k.Name);
+                                }
+                            }
+                        };
+                        district.onchange = function() {
+                            ward.length = 1;
+                            const dataCity = data.filter((n) => n.Name === citis.value);
+                            if (this.value != "") {
+                                const dataWards = dataCity[0].Districts.filter(n => n.Name === this.value)[0].Wards;
+
+                                for (const w of dataWards) {
+                                    wards.options[wards.options.length] = new Option(w.Name, w.Name);
+                                }
+                            }
+                        };
+                    }
+                </script>
             </p>
             <button class="btdangki" name="btnDK">Đăng kí </button>
             </form>
