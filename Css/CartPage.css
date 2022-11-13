@@ -185,6 +185,7 @@ h1{
     display:flex;
     align-items:center;
     font-weight:bold;
+    padding-left: 4vw;
 }
 .title-sanpham{
     width:55%
