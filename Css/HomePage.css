@@ -1,4 +1,31 @@
-﻿body {
+﻿.accountBtn {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    font-style: 10px;
+    background-color: #f1f1f1;
+  }
+  .dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    font-family: Inter;
+    font-style: 10px;
+    text-align: left;
+    padding-top:1vw;
+    padding-bottom: 1vw;
+    padding-left: 0.5vw;
+  }
+  .dropdown-content a:hover {background-color: #ddd;}
+  .accountBtn:hover .dropdown-content {display: block;}
+#content{
+    font-size:1vw;
+}
+body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     border: 2px solid #909497;

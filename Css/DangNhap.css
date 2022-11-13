@@ -72,11 +72,12 @@ button {
 }
 .btdangnhap {
     background-color: #FF9AA2;
-    width: 80%;
+    width: 70%;
     height: 50px; 
 }
 .bttaotk { 
     background-color: #C7CEEA;
+    width: 70%;
     height: 50px;
 }
 .quenmk {

@@ -167,18 +167,21 @@ $db = null;
             <p>
                 <input type="text" id="diachi" name="diachi" value="<?php echo isset($_POST['diachi']) ? $_POST['diachi'] : '' ?>" class="input" placeholder="Địa chỉ" />
             </p>
-            <p>
-                <select class="form-select form-select-sm mb-3" id="city" name="city" aria-label=".form-select-sm">
-                    <option value="" selected>Chọn tỉnh thành</option>
-                </select>
-
-                <select class="form-select form-select-sm mb-3" id="district" name="district" aria-label=".form-select-sm">
-                    <option value="" selected>Chọn quận huyện</option>
-                </select>
-
-                <select class="form-select form-select-sm" id="ward" name="ward" aria-label=".form-select-sm">
-                    <option value="" selected>Chọn phường xã</option>
-                </select>
+            <p class="diachi">
+                        <select class="form-select form-select-sm mb-3" id="city" name="city" aria-label=".form-select-sm">
+                            <option value="" selected style="margin-right: 0.5cm;">Chọn tỉnh thành</option>
+                        </select>
+                    </p>
+                    <p class="diachi">
+                        <select class="form-select form-select-sm mb-3" id="district" name="district" aria-label=".form-select-sm">
+                            <option value="" selected>Chọn quận huyện</option>
+                        </select>
+                    </p>
+                    <p class="diachi">
+                        <select class="form-select form-select-sm" id="ward" name="ward" aria-label=".form-select-sm">
+                            <option value="" selected>Chọn phường xã</option>
+                        </select>
+                    </p>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
                 <script>
                     var citis = document.getElementById("city");

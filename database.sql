@@ -252,8 +252,8 @@ CREATE TABLE `role` (
 --
 
 INSERT INTO `role` (`id`, `name`) VALUES
-(10, 'admin'),
-(11, 'admin');
+(10, 'Admin'),
+(11, 'Người dùng');
 
 -- --------------------------------------------------------
 

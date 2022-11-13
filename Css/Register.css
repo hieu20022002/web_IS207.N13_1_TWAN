@@ -161,3 +161,21 @@ button {
     content: "\2716";
     left: -3px;
   }
+  select {
+    border-radius: 10px;
+    background-color: #F4F6F6;   
+    font-style: italic;   
+    width:95%;
+    height: 3.5vw;
+    border: none;
+    font-size: 1.2vw;
+}
+option{
+    font-size:1.2vw;
+    font-style:normal;
+    padding:1vw;
+}
+.diachi {
+    background-color: #F4F6F6;
+    border-radius: 10px;
+}
