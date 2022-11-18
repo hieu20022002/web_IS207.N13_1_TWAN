@@ -223,7 +223,9 @@ $db = null;
                     }
                 </script>
             </p>
+            <button class="btthoat" >Thoát </button>
             <button class="btdangki" name="btnDK">Đăng kí </button>
+
             </form>
         </div>
         <script>
