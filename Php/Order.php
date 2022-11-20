@@ -18,7 +18,7 @@
             <img src="../Images/Logo.svg">
         </div>        
         <div class="column right">
-           <h2>   Đặt hàng  </h2>          
+           <h1>   Đặt hàng  </h1>          
         </div>
     </div>
     
@@ -100,7 +100,7 @@
             <button class="button-apdung">Áp dụng</button>
         </div>
         <div class="total">
-        <h1>Tổng tiền</h1>
+        <h5>Tổng tiền</h5>
         <div class="invoice">
             <p>Tạm tính:</p>
             <p>Giảm giá:</p>
