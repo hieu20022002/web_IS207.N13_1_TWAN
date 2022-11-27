@@ -1,5 +1,4 @@
 <?php
-    session_start();
     $serverName ="localhost";
     $userName ="root";
     $password ="";
@@ -10,9 +9,6 @@
     if(!$con){
       die("Connection failed: ".mysqli_connect_error());
     }
-    
     //echo "Connect success";
-    mysqli_query($con,"SET NAMES 'UTF8'");
-    mysqli_close($con);
    
 ?>

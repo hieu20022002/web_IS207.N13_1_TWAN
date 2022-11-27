@@ -1,4 +1,4 @@
-body {
+﻿body {
     background-image: url('../Images/Nền Đăng Nhập_Đăng kí.png');
     margin-left: 12vw;
     margin-right: 12vw;
@@ -36,7 +36,7 @@ img {
     text-align: center;
     padding: 1vw;
     flex: 50%;
-    margin: 2vw;
+    margin:2vw;
 }
 
 .flex-item-left {
@@ -138,7 +138,6 @@ button {
     padding: 15x 35px;
     font-size: 10px;
     text-align: left;
-    margin-left: 1vw;
   }
 
   .valid {
@@ -147,8 +146,7 @@ button {
   
   .valid:before {
     position: relative;
-    content: "\2714";
-    left: -3px;
+    content: "\2716";
   }
 
   .invalid {
@@ -158,24 +156,5 @@ button {
   
   .invalid:before {
     position: relative;
-    content: "\2716";
-    left: -3px;
+    content: "\2714";
   }
-  select {
-    border-radius: 10px;
-    background-color: #F4F6F6;   
-    font-style: italic;   
-    width:95%;
-    height: 3.5vw;
-    border: none;
-    font-size: 1.2vw;
-}
-option{
-    font-size:1.2vw;
-    font-style:normal;
-    padding:1vw;
-}
-.diachi {
-    background-color: #F4F6F6;
-    border-radius: 10px;
-}

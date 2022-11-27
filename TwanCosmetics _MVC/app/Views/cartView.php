@@ -4,13 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Giỏ hàng</title>
-    <link rel="stylesheet" href="../Css/CartPage.css" />
+    <link rel="stylesheet" href="/app/Views/Css/CartPage.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
-    <img class="logo" src="../Images/Logo.svg">
+    <form method="post">
+    <img class="logo" src="/Images/Logo.svg">
     <div class="heading1">
         CỬA HÀNG TRỰC TUYẾN 24/7 - GIAO HÀNG NHANH CHÓNG
     </div>
@@ -24,21 +25,20 @@
         <button class="material-symbols-outlined" id="icon">
             shopping_cart
         </button>
-        <button class="material-symbols-outlined" id="icon">
+        <div class="accountBtn">
+        <button class="material-symbols-outlined" name ="loginBtn" id="icon">
             account_circle
+            <div class="dropdown-content" id="content" <?php if (empty($_SESSION['username'])) echo "style ='display: none';" ?>>
+                <a href="#">Thay đổi thông tin</a>
+                <a href="#">Đơn hàng</a>
+                <a href="http://localhost:3000/index.php?url=login/logout">Đăng xuất</a>
+            </div>
+        </div>      
         </button>
     </div>
-    <div class="nav">
-        <ul>
-            <li><a href="#trangchu">Trang chủ</a></li>
-            <li>
-                <a href="#sanpham">Sản phẩm </a>
-            </li>
-            <li><a href="#khuyenmai">Khuyến mãi</a></li>
-            <li><a href="#kienthuc">Kiến thức chăm sóc da</a></li>
-            <li><a href="#lienhe">Liên hệ </a></li>
-        </ul>
     </div>
+    <?php include_once './system/libs/nav.php'; ?>
+
     <div class="frame">
         Trang chủ/Giỏ hàng
     </div>
@@ -54,7 +54,7 @@
             </div>
             <div class="flex-container">
                 <div class="product">
-                    <img src=".\Images\Products\Cocoon\Gel bí đao rửa mặt Cocoon.jpg" id="image-product" />
+                    <img src="/Images/Products/Cocoon/Gel bí đao rửa mặt Cocoon.jpg" id="image-product" />
                     <a class="name-product">Gel bí đao rửa mặt Cocoon</a>
                 </div>
                 <div class="title-giatien">
@@ -74,7 +74,7 @@
             </div>
             <div class="flex-container">
                 <div class="product">
-                    <img src=".\Images\Products\Cocoon\Gel bí đao rửa mặt Cocoon.jpg" id="image-product" />
+                    <img src="/Images/Products/Cocoon/Gel bí đao rửa mặt Cocoon.jpg" id="image-product" />
                     <a>Gel bí đao rửa mặt Cocoon </a>
                 </div>
                 <div class="title-giatien">
@@ -127,24 +127,10 @@
         </div>
         <button class="button-dathang2">Tiến hành đặt hàng</button>
     </div>
-    <img class="logo2" src=".\Images\Logo.svg">
-    <footer>
-        <div class="nav2">
-            <a href="#info">Về chúng tôi </a>
-            <a href="#sanpham">Sản phẩm </a>
-            <a> </a>
-            <a href="#hotro">Hỗ trợ khách hàng</a>
-            <a href="#lienhe">Liên hệ </a>
-        </div>
-        <p>
-            <hr class="line2" />
-        </p>
+    <img class="logo2" src="/Images/Logo.svg">
+    
+    <?php include_once './system/libs/footer.php' ?>
 
-        <pre class="footer-text">
-            Địa chỉ: Khu phố 6, Phường Linh Trung, Thành phố Thủ Đức, Thành phố Hồ Chí Minh - Email: cskh@hotro.twancosmestics.vn
-                        Chịu Trách Nhiệm Quản Lí Nội Dung: Nguyễn Ngọc Hiền - Điện thoại liên hệ: 0812922218
-                                © 2022 Twan Comestics. All rights reserved.
-        </pre>
-    </footer>
+</form>
 </body>
 </html>
