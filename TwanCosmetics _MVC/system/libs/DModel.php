@@ -1,3 +1,4 @@
+
 <?php
     class DModel{
         protected $conn;
@@ -6,7 +7,7 @@
         protected $password = "";
         public function connectDB(){
             try {
-                $conn = new PDO("mysql:host=$this->servername;dbname=twancosmetics_mvc_demo", $this->username, $this->password);
+                $conn = new PDO("mysql:host=$this->servername;dbname=twancosmetics", $this->username, $this->password);
                 // set the PDO error mode to exception
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 //echo "Connected successfully <br>";
@@ -20,3 +21,4 @@
 
     
 ?>
+
