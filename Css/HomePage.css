@@ -21,9 +21,7 @@ body {
   .affix + .container-fluid {
     padding-top: 70px;
   }
-header{
-    margin-right: 1vw;
-}
+
 .heading1 {
     
     display: flex;
@@ -106,6 +104,10 @@ nav {
     font-size: 1.5vw;
     margin-bottom:2vw ;
 }
+a{
+    text-decoration: none;
+    color: var(--purple);
+}
 
     nav li {
         float: left;
@@ -129,6 +131,11 @@ nav {
             color: var(--purple);
             text-decoration: none;
           }
+        li a:focus{
+            background-color:white;
+            color:var(--purple);
+            text-decoration: none;
+        }
 
 img{
     width:110vw;
