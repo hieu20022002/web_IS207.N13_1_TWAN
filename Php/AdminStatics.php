@@ -28,14 +28,13 @@
         </button>
     </div>
 </header>
-   
-        <div data-spy="affix">
+<section data-spy="affix" id="nav">
         <nav >
         <ul>
             <li><a href="#" class="active"> <span class="material-symbols-outlined" id="icon-thongke"> monitoring </span>
             </a></li>
             <li>
-                <a href="#"><span class="material-symbols-outlined" id="icon-thongke">
+                <a href="#" ><span class="material-symbols-outlined" id="icon-thongke">
                 person
                 </span> </a>
             </li>
@@ -59,41 +58,40 @@
             
         </ul>
     </nav>
-        </div>
+        </section>
     <div class="main">
-    <div class="grid-container">
-    <div> <span class="material-symbols-outlined" id="icon-thongke2">
-    group
-    </span> Khách hàng
-    <p>50</p>
-    </div>
-    <div>
-    <span class="material-symbols-outlined" id="icon-thongke2">
-    inventory
-    </span>
-    Sản phẩm
-    <p>50</p>
-    </div>
-    <div>  
-    <span class="material-symbols-outlined" id="icon-thongke2">
-    sticky_note_2
-    </span>
-    Đơn hàng
-    <p>50</p>
-    </div>
-    <div>
-    <span class="material-symbols-outlined" id="icon-thongke2">
-    paid
-    </span>
-    Doanh thu
-    <p>3.000.000</p>
-    </div>
-    </div>
-
-    <div class="bieudo">
-    Biểu đồ thống kê doanh thu
-    
-    </div>
+        <div class="grid-container">
+        <div> <span class="material-symbols-outlined" id="icon-thongke2">
+        group
+        </span> Khách hàng
+        <p>50</p>
+        </div>
+        <div>
+        <span class="material-symbols-outlined" id="icon-thongke2">
+        inventory
+        </span>
+        Sản phẩm
+        <p>50</p>
+        </div>
+        <div>  
+        <span class="material-symbols-outlined" id="icon-thongke2">
+        sticky_note_2
+        </span>
+        Đơn hàng
+        <p>50</p>
+        </div>
+        <div>
+        <span class="material-symbols-outlined" id="icon-thongke2">
+        paid
+        </span>
+        Doanh thu
+        <p>3.000.000</p>
+        </div>
+        </div>
+        <div class="bieudo">
+        Biểu đồ thống kê doanh thu
+        
+        </div>
     </div>
     <button onclick="topFunction()" id="myBtn" title="Go to top">
     <span class="material-symbols-outlined">
