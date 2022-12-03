@@ -112,9 +112,7 @@ ul{
             }
 
 .main{
-    margin-left: 20vw;
-    margin-right: 5vw;
-    margin-top: 14vw;
+    margin: 12vw 10vw 4vw 25vw;
 }
 .grid-container {
     display: grid;
