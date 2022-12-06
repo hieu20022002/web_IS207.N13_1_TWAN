@@ -287,6 +287,12 @@ form label {
     font-weight:bold;
     text-align:center;
 }
+a{
+    color: #000;
+  }
+  a:hover{
+    color: var(--purple);
+  }
 .price-product {
     text-align: center;
     font-weight: bold;
@@ -319,7 +325,7 @@ footer {
     
     background-color: #957DAD;
     margin-top: 10vw;
-    padding-top: 6%;
+    padding-top: 4vw;
     padding-left: 2%;
     padding-right: 2%;
     margin-bottom: 0;
@@ -344,12 +350,12 @@ footer {
     }
     .logo2 {
         position: absolute;
-        width: 20vw;
-        height: 15vw;
-        margin-left: 37%;
+        margin-left: 43%;
         background: #957DAD;
         align-content: center;
         margin-top: 7vw;
+        width: 9vw;
+        height: 9vw;
     }     
        
         .line2 {
@@ -365,12 +371,15 @@ footer {
             justify-content: space-around;
             background-color: var(--darkpurple);
             border: none;
-            padding-top: 5%;
-            padding-bottom: 5%;
+            padding-top: 1vw;
+            padding-bottom: 1vw;
             font-size: 1vw;
             position: relative;
             margin-bottom: 0;
             margin-right: 0;
             color: #000000;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            text-align: center;
 
         }
