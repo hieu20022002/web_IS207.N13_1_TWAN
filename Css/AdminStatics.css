@@ -17,12 +17,15 @@ body {
 header{
     height: 10vw; 
     background-color: white;
-    
+    padding-left: 2vw;
     padding-right: 8vw;
     margin: 0vw;
 }
 img{
     width: 14vw;
+}
+.logo{
+    width: 10vw;
 }
 #icon {
     color: var(--darkpurple);

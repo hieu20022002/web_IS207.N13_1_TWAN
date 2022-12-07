@@ -18,7 +18,7 @@
 <body>
 
     <header data-spy="affix">
-        <img src="../Images_Web/Logo/Logo_Admin.svg">
+        <img src="../Images_Web/Logo/Logo_Admin.svg" class="logo">
         <div class="icon2">
         <button class="material-symbols-outlined" id="icon">
         notifications
