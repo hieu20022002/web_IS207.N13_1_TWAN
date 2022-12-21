@@ -66,9 +66,24 @@ body {
     font-size: 2.5vw;
     font-weight: bolder;
     padding: 0;
-    margin-right: 1vw;
+    margin-right: 2vw;
 }
-
+.notification {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+  }  
+  .notification .badge {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: var(--purple);
+    color: white;
+  }
 .icon2 {
     margin-top: 3.5vw;
     margin-right: 10vw;

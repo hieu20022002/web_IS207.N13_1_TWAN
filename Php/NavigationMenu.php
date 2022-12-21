@@ -28,9 +28,12 @@
         </button>
     </div>
     <div class="icon2">
-        <button class="material-symbols-outlined" id="icon">
+        <a href="#" class="notification">
+            <span class="material-symbols-outlined" id="icon">
             shopping_cart
-        </button>
+            </span>
+            <span class="badge">3</span>
+        </a>
         <button class="material-symbols-outlined" id="icon">
             account_circle
         </button>
